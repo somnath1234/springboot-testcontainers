@@ -1,0 +1,31 @@
+meta {
+  name: post
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/demo
+  body: json
+  auth: inherit
+}
+
+headers {
+  jwt: {{jwt}}
+}
+
+body:json {
+  {
+    "value":"{{name}}"
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("res status is equal 200", function(){
+    expect(res.status).to.eql(200)
+  })
+}

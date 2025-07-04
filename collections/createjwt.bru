@@ -1,0 +1,19 @@
+meta {
+  name: createjwt
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/demo/jwt
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.status: eq 400
+}
+
+script:post-response {
+  bru.setEnvVar("jwt",res.getBody().jwt)
+}
