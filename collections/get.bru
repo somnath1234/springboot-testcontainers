@@ -1,11 +1,15 @@
 meta {
-  name: get
+  name: Get
   type: http
-  seq: 2
+  seq: 3
 }
 
 get {
-  url: {{base_url}}/demo
+  url: {{base-url}}/api/unknown/2
   body: none
   auth: inherit
+}
+
+headers {
+  x-api-key: {{api-key}}
 }
