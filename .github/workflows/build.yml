@@ -33,8 +33,22 @@ jobs:
       - name: Push Docker image
         run: docker push somnath1150/springboot-container-application
 
-      - name: Run Tests
-        run: mvn test
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Bruno CLI
+        run: npm install -g @usebruno/cli
+
+      - name: Automate test case using bruno CLI
+        run: bru run --env local --reporter-html results.html
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: results.html
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
