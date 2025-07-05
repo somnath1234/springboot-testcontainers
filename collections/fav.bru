@@ -1,0 +1,17 @@
+meta {
+  name: fav
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base-url}}/api/favorites
+  body: none
+  auth: inherit
+}
+
+script:pre-request {
+  req.setHeader("Authorization", "Token {{tokenValue}}")
+  const header = req.getHeader("tokenValue");
+  console.log("header",header);
+}
