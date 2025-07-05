@@ -1,14 +1,14 @@
 # Use an official OpenJDK runtime as a parent image
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:24-jdk
   
   # Set the working directory inside the container
 WORKDIR /testcontainers-java
   
   # Copy the packaged jar file into the container
-COPY target/*.jar testcontainers-java-0.0.1-SNAPSHOT.jar.jar
+COPY target/*.jar testcontainers-java-0.0.1-SNAPSHOT.jar
   
   # Expose the port your Spring Boot app runs on (default 8080)
 EXPOSE 8080
   
   # Run the jar file
-ENTRYPOINT ["java", "-jar", "testcontainers-java-0.0.1-SNAPSHOT.jar.jar"]
+ENTRYPOINT ["java", "-jar", "testcontainers-java-0.0.1-SNAPSHOT.jar"]
