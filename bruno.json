@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "airportgap.com",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
