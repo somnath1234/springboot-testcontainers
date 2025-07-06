@@ -1,0 +1,55 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin
+
+app:
+  name: My Sping Boot Application
+  version: 1.0.0
+  settings:
+    max-threads: 10
+    debug-mode: true
+
+
+logging:
+  structured:
+    format:
+      console: ecs
+    ecs:
+      service:
+        name: testcontainers-java
+        version: 1.0.0
+        environment: local
+        node-name: pod-abc123
+
+management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
+
+  sleuth:
+    propagation:
+      type: w3c,b3  # Support W3C and B3 propagation formats for compatibility
+
+  # Zipkin endpoint configuration (if using Zipkin)
+  zipkin:
+    base-url: http://localhost:9411
+    sender:
+      type: web
+
+  threads:
+    virtual:
+      enabled: true

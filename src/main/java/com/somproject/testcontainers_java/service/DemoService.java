@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
-public class DemoService {
+public class DemoService  {
 
     private final DemoRepository demoRepository;
 
