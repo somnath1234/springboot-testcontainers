@@ -12,8 +12,8 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: admin
+    username:
+    password:
 
 app:
   name: My Sping Boot Application
@@ -53,3 +53,14 @@ management:
   threads:
     virtual:
       enabled: true
+
+cloud:
+  aws:
+    credentials:
+      access-key:
+      secret-key:
+    region: ap-south-1
+
+s3:
+  bucket:
+    name: somsfirsts3bucket
