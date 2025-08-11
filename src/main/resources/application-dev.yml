@@ -11,8 +11,8 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   datasource:
-    url: jdbc:postgresql://postgresql.somnathadalinge-dev.svc.cluster.local:5432/postgres?connectTimeout=20&socketTimeout=1200&sslmode=disable
-    username:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
     password:
 
 app:
