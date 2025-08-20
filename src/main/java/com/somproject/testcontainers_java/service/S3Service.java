@@ -2,6 +2,9 @@ package com.somproject.testcontainers_java.service;
 
 
 import com.somproject.testcontainers_java.config.S3Config;
+import com.somproject.testcontainers_java.controller.FileController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,6 +16,8 @@ import java.io.IOException;
 
 @Service
 public class S3Service {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(S3Service.class);
 
     @Value("${s3.bucket.name}")
     private String bucketName;
@@ -32,6 +37,7 @@ public class S3Service {
      */
 
     public void uploadFile(MultipartFile multipartFile) throws IOException {
+        LOGGER.atInfo().log("uploadFile : start to upload file");
         s3Client.putObject(PutObjectRequest.builder()
                 .bucket(bucketName).key(multipartFile.getOriginalFilename()).build(),
                 RequestBody.fromBytes(multipartFile.getBytes()));

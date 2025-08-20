@@ -12,8 +12,8 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
-    username:
-    password:
+    username: postgres
+    password: admin
 
 app:
   name: My Sping Boot Application
